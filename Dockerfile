@@ -5,4 +5,6 @@ RUN apt update -y && apt-get install -y software-properties-common  python-softw
 RUN wget https://bootstrap.pypa.io/get-pip.py && python3.6 get-pip.py && python3.6 -m pip install -U pip && python3.6 -m pip install tensorflow-gpu pytest pytest-cov python-coveralls coverage pytest-pep8 pydot_ng graphviz jupyter Pillow scikit-learn pandas matplotlib nose pyyaml nose six h5py numpy mock scipy seaborn numpy keras http://download.pytorch.org/whl/cu91/torch-0.4.0-cp36-cp36m-linux_x86_64.whl pyro-ppl
 
 WORKDIR /workspace/
+EXPOSE 8888/tcp
+EXPOSE 8888/udp
 CMD jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root
